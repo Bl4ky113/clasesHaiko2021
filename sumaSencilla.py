@@ -8,8 +8,8 @@ def suma ():
  return x + y
 
 # Entrada de los Inputs
-for i in range(3):
- resultados[suma[]].append(suma())
+for i in range(5):
+ resultados.append(suma())
  print("El resultado de su suma es:  ", resultados[i])
 
 # Print de los Inputs
