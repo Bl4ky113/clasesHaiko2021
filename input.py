@@ -1,3 +1,6 @@
+# Para usar este Test, pon la cantidad de Inputs que requieras y Ejecutalo así:
+#    $ python ./input.py < entrada
+
 input1 = input()
 input2 = input()
 input3 = input()
