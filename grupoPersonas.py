@@ -126,6 +126,6 @@ print("La Persona Más Baja es:  ", personasMenor(estaturaPersonas, 3))
 print("La Persona Más Alta es:  ", personasMayor(estaturaPersonas, 3))
 
 # Imprimir Personas (Si hay) con las mismas frutas y con cuales
-frutasIguales = buscarValoresIguales(frutaPersonas, 2, "frutas");
+frutasIguales = buscarValoresIguales(frutaPersonas, 2, "frutas")
 for i in range(len(frutasIguales)):
   print(frutasIguales[i])
