@@ -35,26 +35,54 @@ def buscarPersona(valorGanador, indexValor):
 # Ver quien es el mas joven
 def personasMenor(array, indexValor):
   array.sort() # Organiza de Menor a mayor
-  print(array)
   menor = buscarPersona(array[0], indexValor)
   return menor
 
 # Ver quien es el mas viejo
 def personasMayor(array, indexValor):
   array.sort(reverse=True) # Organiza de Mayor a menor
-  print(array)
   mayor = buscarPersona(array[0], indexValor)
   return mayor
 
-# Ver si hay frutas iguales
-def buscarFrutasIguales (array):
-  indexEncontrado = []
+# Ver si hay valores iguales
+def buscarValoresIguales (array, indexValor):
+  #personasMismoValor = []
+  numPersonasMismoValor = [] # Array con [Numero de personas con el valor, valor]
 
+  # Ver cuantas veces se repite un valor y cual es
+  for i in range(numPersonas):
+    if array.count(array[i]) > 1: # No ingresar el valor si no hay mas de persona con el
+      if [array.count(array[i]), array[i]] not in numPersonasMismoValor:
+        numPersonasMismoValor.append([array.count(array[i]), array[i]])
+
+  print(numPersonasMismoValor)
+
+'''
+  # Dividir los grupos que tienen 
+  for i in range(len(numPersonasMismoValor)):
+
+    for e in range(numPersonasMismoValor[i][0]):
+      print(e)
+'''
+
+  
+'''
+  for i in range(numPersonas):
+    print(i, " i")
+    for e in range(numPersonas):
+      print(e, " e")
+      condicional_1 = objPersona[i].info()[indexValor] == objPersona[e].info()[indexValor]
+      condicional_2 = objPersona[i] != objPersona[e]
+      # Verificar si la Persona tiene el mismo valor que otra Persona y que esta no sea ella misma
+      if condicional_1 and condicional_2:
+        numPersonasMismoValor += 1
+        print(numPersonasMismoValor, "Personas")
+'''
 ''' Input de Datos '''
 
 # Arrays de las Personas 
 objPersona = []
-numPersonas = 2
+numPersonas = 5
 
 edadesPersonas = []
 estaturaPersonas = []
@@ -62,19 +90,18 @@ frutaPersonas = []
 
 # Entrada de Personas
 for i in range(numPersonas):
+  # Eliminado Entrada de Inputs para Mejor comprension de la terminal
   objPersona.append(infoPersona(
-    nombre = input("Ingresa Tu Nombre:  "),
-    edad = int(input("Ingresa Tu Edad:  ")),
-    fruta = input("Ingresa Una Fruta:  "),
-    estatura = float(input("Ingresa Tu Estatura en Metros:  "))
+    nombre = input(),
+    edad = int(input()),
+    fruta = input(),
+    estatura = float(input())
   ))
 
   # Datos de la Personas
   edadesPersonas.append(objPersona[i].info()[1])
   frutaPersonas.append(objPersona[i].info()[2])
   estaturaPersonas.append(objPersona[i].info()[3])
-  
-print(estaturaPersonas)
 
 ''' Output de Datos '''
 
@@ -87,4 +114,4 @@ print("La Persona Más Baja es:  ", personasMenor(estaturaPersonas, 3))
 print("La Persona Más Alta es:  ", personasMayor(estaturaPersonas, 3))
 
 # Imprimir Personas (Si hay) con las mismas frutas y con cuales
-buscarFrutasIguales(frutaPersonas)
+print(buscarValoresIguales(frutaPersonas, 2))
