@@ -46,7 +46,7 @@ def personasMayor(array, indexValor):
 
 # Ver si hay valores iguales
 def buscarValoresIguales (array, indexValor):
-  #personasMismoValor = []
+  personasMismoValor = []
   numPersonasMismoValor = [] # Array con [Numero de personas con el valor, valor]
 
   # Ver cuantas veces se repite un valor y cual es
@@ -55,16 +55,13 @@ def buscarValoresIguales (array, indexValor):
       if [array.count(array[i]), array[i]] not in numPersonasMismoValor:
         numPersonasMismoValor.append([array.count(array[i]), array[i]])
 
-  print(numPersonasMismoValor)
-
-'''
-  # Dividir los grupos que tienen 
+  # Obtener quienes los integran los grupos
   for i in range(len(numPersonasMismoValor)):
-
-    for e in range(numPersonasMismoValor[i][0]):
-      print(e)
-'''
-
+    personasMismoValor.append([numPersonasMismoValor[i][1]])
+    for e in range(numPersonas):
+      if objPersona[e].info()[indexValor] == numPersonasMismoValor[i][1]:
+        personasMismoValor[i].append(objPersona[e].info()[0])
+    print(personasMismoValor)
   
 '''
   for i in range(numPersonas):
