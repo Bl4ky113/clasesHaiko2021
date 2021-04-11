@@ -45,23 +45,38 @@ def personasMayor(array, indexValor):
   return mayor
 
 # Ver si hay valores iguales
-def buscarValoresIguales (array, indexValor):
-  personasMismoValor = []
-  numPersonasMismoValor = [] # Array con [Numero de personas con el valor, valor]
-
+def buscarValoresIguales (array, indexValor, valorBuscar):
   # Ver cuantas veces se repite un valor y cual es
+
+  numPersonasMismoValor = [] # Array con [Numero de personas con el valor, valor]
   for i in range(numPersonas):
     if array.count(array[i]) > 1: # No ingresar el valor si no hay mas de persona con el
       if [array.count(array[i]), array[i]] not in numPersonasMismoValor:
         numPersonasMismoValor.append([array.count(array[i]), array[i]])
 
   # Obtener quienes los integran los grupos
+
+  personasMismoValor = [] # Matriz con los grupos y las personas de ese grupo
   for i in range(len(numPersonasMismoValor)):
     personasMismoValor.append([numPersonasMismoValor[i][1]])
     for e in range(numPersonas):
       if objPersona[e].info()[indexValor] == numPersonasMismoValor[i][1]:
         personasMismoValor[i].append(objPersona[e].info()[0])
-    print(personasMismoValor)
+  
+  # Organizar los datos para su salida
+  if numPersonasMismoValor != []:
+    mensajeSalida = [] # Array con los mensajes de todos los grupos
+    for i in range(len(numPersonasMismoValor)):
+      mensajeGrupo =  "Hay personas que comparten " + valorBuscar + " cómo el o la " + personasMismoValor[i][0] + " "
+      personasGrupo = [] # Array que tiene las personas en el grupo
+      for e in range(len(personasMismoValor[i]) - 1):
+        personasGrupo.append(personasMismoValor[i][e + 1])
+      mensajeSalida.append(mensajeGrupo + str(personasGrupo) + "\n")
+    
+  else:
+    mensajeSalida = "No hay personas que compartan " + valorBuscar
+
+  return mensajeSalida
   
 '''
   for i in range(numPersonas):
@@ -79,7 +94,7 @@ def buscarValoresIguales (array, indexValor):
 
 # Arrays de las Personas 
 objPersona = []
-numPersonas = 5
+numPersonas = 6
 
 edadesPersonas = []
 estaturaPersonas = []
@@ -111,4 +126,6 @@ print("La Persona Más Baja es:  ", personasMenor(estaturaPersonas, 3))
 print("La Persona Más Alta es:  ", personasMayor(estaturaPersonas, 3))
 
 # Imprimir Personas (Si hay) con las mismas frutas y con cuales
-print(buscarValoresIguales(frutaPersonas, 2))
+frutasIguales = buscarValoresIguales(frutaPersonas, 2, "frutas");
+for i in range(len(frutasIguales)):
+  print(frutasIguales[i])
