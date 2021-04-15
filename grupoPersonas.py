@@ -12,7 +12,7 @@
         - Quien es la más baja
         - Buscar quienes tienen la fruta en común
 
-  Debemos agregarle como minimo 2 cosas a el códido de demás
+  Debemos agregarle como minimo 2 cosas a el código de demás
 '''
 
 # Class Info de Personas
@@ -84,6 +84,22 @@ def buscarValoresIguales (array, indexValor, valorBuscar):
     # Imprimir los datos con su mensaje
     print(mensajeSalida)
   
+# Embellecer los arrays de salida
+# Funciona para Pasar de [Persona1, Persona2, Persona3] a un formato más legible como Persona1, Persona2 y Persona3
+
+def bonitosArrays (array):
+  if array != [] and type(array) == type([]): # Verificar que la entrada de la funcion sea un Array
+    if len(array) > 1:
+      arrayBonito = "" # Resultado del array ya bonito
+      for i in range(len(array) - 1):
+        arrayBonito += str(array[i]) + ", " # Agregar las primeras personas con una coma para la siguiente & ultima persona
+
+      arrayBonito += "y " + str(array[-1]) # Agregar la ultima persona, con un & o Y al inicio
+      return arrayBonito
+    else:
+      return array[0]
+  else: # Si no es un array, pa la basura
+    return False
 '''
   for i in range(numPersonas):
     print(i, " i")
