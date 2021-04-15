@@ -86,6 +86,18 @@ def buscarValoresIguales (array, indexValor, valorBuscar):
     mensajeSalida = "No hay personas que compartan " + valorBuscar + "\n"
     # Imprimir los datos con su mensaje
     print(mensajeSalida)
+'''
+  for i in range(numPersonas):
+    print(i, " i")
+    for e in range(numPersonas):
+      print(e, " e")
+      condicional_1 = objPersona[i].info()[indexValor] == objPersona[e].info()[indexValor]
+      condicional_2 = objPersona[i] != objPersona[e]
+      # Verificar si la Persona tiene el mismo valor que otra Persona y que esta no sea ella misma
+      if condicional_1 and condicional_2:
+        numPersonasMismoValor += 1
+        print(numPersonasMismoValor, "Personas")
+'''
   
 # Embellecer los arrays de salida
 # Funciona para Pasar de [Persona1, Persona2, Persona3] a un formato más legible como Persona1, Persona2 y Persona3
@@ -106,18 +118,7 @@ def bonitosArrays (array):
       return array[0]
   else: # Si no es un array, pa la basura
     return False
-'''
-  for i in range(numPersonas):
-    print(i, " i")
-    for e in range(numPersonas):
-      print(e, " e")
-      condicional_1 = objPersona[i].info()[indexValor] == objPersona[e].info()[indexValor]
-      condicional_2 = objPersona[i] != objPersona[e]
-      # Verificar si la Persona tiene el mismo valor que otra Persona y que esta no sea ella misma
-      if condicional_1 and condicional_2:
-        numPersonasMismoValor += 1
-        print(numPersonasMismoValor, "Personas")
-'''
+
 ''' Input de Datos '''
 
 # Arrays de las Personas 
