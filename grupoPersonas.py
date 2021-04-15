@@ -69,11 +69,11 @@ def buscarValoresIguales (array, indexValor, valorBuscar):
   if numPersonasMismoValor != []:
     mensajeSalida = [] # Array con los mensajes de todos los grupos
     for i in range(len(numPersonasMismoValor)):
-      mensajeGrupo =  "Hay personas que comparten " + valorBuscar + " cómo el o la " + personasMismoValor[i][0] + " "
+      mensajeGrupo =  "Hay personas que comparten " + valorBuscar + " cómo el o la " + personasMismoValor[i][0] + ":   "
       personasGrupo = [] # Array que tiene las personas en el grupo
       for e in range(len(personasMismoValor[i]) - 1):
         personasGrupo.append(personasMismoValor[i][e + 1])
-      mensajeSalida.append(mensajeGrupo + str(personasGrupo))
+      mensajeSalida.append(mensajeGrupo + bonitosArrays(personasGrupo))
     
     # Imprimir los datos con su mensaje
     for i in range(len(mensajeSalida)):
@@ -92,7 +92,6 @@ def bonitosArrays (array):
     if len(array) > 1:
       arrayBonito = "" # Resultado del array ya bonito
       for i in range(len(array) - 1):
-        print(i, array[i])
         if i == len(array) - 2:
           arrayBonito += str(array[i]) + " "  # No Agregar coma para la ultima persona
         else:
@@ -120,7 +119,7 @@ def bonitosArrays (array):
 
 # Arrays de las Personas 
 objPersona = []
-numPersonas = 3
+numPersonas = 5
 
 edadesPersonas = []
 estaturaPersonas = []
@@ -144,12 +143,12 @@ for i in range(numPersonas):
 ''' Output de Datos '''
 
 # Imprimir Personas Menores y Mayores en Edad
-print("La Persona Más Menor es:  ", personasMenorMayor(edadesPersonas, 1, "menor"))
-print("La Persona Más Mayor es:  ", personasMenorMayor(edadesPersonas, 1, "mayor"))
+print("La Persona Más Menor es:  ", bonitosArrays(personasMenorMayor(edadesPersonas, 1, "menor")))
+print("La Persona Más Mayor es:  ", bonitosArrays(personasMenorMayor(edadesPersonas, 1, "mayor")))
 
 # Imprimir Personas Menores y Mayores en Estatura
-print("La Persona Más Baja es:  ", personasMenorMayor(estaturaPersonas, 3, "menor"))
-print("La Persona Más Alta es:  ", personasMenorMayor(estaturaPersonas, 3, "mayor"))
+print("La Persona Más Baja es:  ", bonitosArrays(personasMenorMayor(estaturaPersonas, 3, "menor")))
+print("La Persona Más Alta es:  ", bonitosArrays(personasMenorMayor(estaturaPersonas, 3, "mayor")))
 
 # Imprimir Personas (Si hay) con las mismas frutas y con cuales
 buscarValoresIguales(frutaPersonas, 2, "frutas")
