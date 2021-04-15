@@ -11,6 +11,8 @@
         - Quien es la más alta
         - Quien es la más baja
         - Buscar quienes tienen la fruta en común
+
+  Debemos agregarle como minimo 2 cosas a el códido de demás
 '''
 
 # Class Info de Personas
@@ -32,17 +34,14 @@ def buscarPersona(valorGanador, indexValor):
     if objPersona[i].info()[indexValor] == valorGanador:
       return objPersona[i].info()[0]
 
-# Ver quien es el mas joven
-def personasMenor(array, indexValor):
+# Ver quien es el Menor o Mayor "Algo"
+def personasMenorMayor(array, indexValor, valorBuscar):
   array.sort() # Organiza de Menor a mayor
-  menor = buscarPersona(array[0], indexValor)
-  return menor
-
-# Ver quien es el mas viejo
-def personasMayor(array, indexValor):
-  array.sort(reverse=True) # Organiza de Mayor a menor
-  mayor = buscarPersona(array[0], indexValor)
-  return mayor
+  if valorBuscar == "mayor":
+    persona = buscarPersona(array[-1], indexValor)
+  if valorBuscar == "menor":
+    persona = buscarPersona(array[0], indexValor)
+  return persona
 
 # Ver si hay valores iguales
 def buscarValoresIguales (array, indexValor, valorBuscar):
@@ -71,12 +70,16 @@ def buscarValoresIguales (array, indexValor, valorBuscar):
       personasGrupo = [] # Array que tiene las personas en el grupo
       for e in range(len(personasMismoValor[i]) - 1):
         personasGrupo.append(personasMismoValor[i][e + 1])
-      mensajeSalida.append(mensajeGrupo + str(personasGrupo) + "\n")
+      mensajeSalida.append(mensajeGrupo + str(personasGrupo))
     
-  else:
-    mensajeSalida = "No hay personas que compartan " + valorBuscar
+    # Imprimir los datos con su mensaje
+    for i in range(len(mensajeSalida)):
+      print(mensajeSalida[i])
 
-  return mensajeSalida
+  else:
+    mensajeSalida = "No hay personas que compartan " + valorBuscar + "\n"
+    # Imprimir los datos con su mensaje
+    print(mensajeSalida)
   
 '''
   for i in range(numPersonas):
@@ -118,14 +121,12 @@ for i in range(numPersonas):
 ''' Output de Datos '''
 
 # Imprimir Personas Menores y Mayores en Edad
-print("La Persona Más Menor es:  ", personasMenor(edadesPersonas, 1))
-print("La Persona Más Mayor es:  ", personasMayor(edadesPersonas, 1))
+print("La Persona Más Menor es:  ", personasMenorMayor(edadesPersonas, 1, "menor"))
+print("La Persona Más Mayor es:  ", personasMenorMayor(edadesPersonas, 1, "mayor"))
 
 # Imprimir Personas Menores y Mayores en Estatura
-print("La Persona Más Baja es:  ", personasMenor(estaturaPersonas, 3))
-print("La Persona Más Alta es:  ", personasMayor(estaturaPersonas, 3))
+print("La Persona Más Baja es:  ", personasMenorMayor(estaturaPersonas, 3, "menor"))
+print("La Persona Más Alta es:  ", personasMenorMayor(estaturaPersonas, 3, "mayor"))
 
 # Imprimir Personas (Si hay) con las mismas frutas y con cuales
-frutasIguales = buscarValoresIguales(frutaPersonas, 2, "frutas")
-for i in range(len(frutasIguales)):
-  print(frutasIguales[i])
+buscarValoresIguales(frutaPersonas, 2, "frutas")
