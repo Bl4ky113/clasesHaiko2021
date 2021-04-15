@@ -30,9 +30,12 @@ class infoPersona:
 
 # Buscar quien tiene el dato ganador en la lista de personas 
 def buscarPersona(valorGanador, indexValor):
+  ganadores = [] # Array de los Ganadores
   for i in range(numPersonas):
     if objPersona[i].info()[indexValor] == valorGanador:
-      return objPersona[i].info()[0]
+      ganadores.append(objPersona[i].info()[0])
+
+  return ganadores
 
 # Ver quien es el Menor o Mayor "Algo"
 def personasMenorMayor(array, indexValor, valorBuscar):
@@ -97,7 +100,7 @@ def buscarValoresIguales (array, indexValor, valorBuscar):
 
 # Arrays de las Personas 
 objPersona = []
-numPersonas = 6
+numPersonas = 3
 
 edadesPersonas = []
 estaturaPersonas = []
