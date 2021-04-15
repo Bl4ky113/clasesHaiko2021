@@ -17,14 +17,17 @@
 
 # Class Info de Personas
 class infoPersona:
-  def __init__ (self, nombre, edad, fruta, estatura):
+  def __init__ (self, nombre, edad, genero, fruta, estatura, ingresoMensual, lenguajeProgramacion):
     self.nombre = nombre
     self.edad = edad
+    self.genero = genero
     self.fruta = fruta
     self.estatura = estatura
+    self.ingresoMensual = ingresoMensual
+    self.lenguajeProgramacion = lenguajeProgramacion
 
   def info (self):
-    return [self.nombre, self.edad, self.fruta, self.estatura]
+    return [self.nombre, self.edad, self.genero, self.fruta, self.estatura, self.ingresoMensual, self.lenguajeProgramacion]
 
 ''' Manipulacion de datos '''
 
@@ -122,8 +125,11 @@ objPersona = []
 numPersonas = 5
 
 edadesPersonas = []
-estaturaPersonas = []
+generosPersonas = []
 frutaPersonas = []
+estaturaPersonas = []
+ingresoPersonas = []
+lenguajePersonas = []
 
 # Entrada de Personas
 for i in range(numPersonas):
@@ -131,14 +137,20 @@ for i in range(numPersonas):
   objPersona.append(infoPersona(
     nombre = input(),
     edad = int(input()),
+    genero = input(),
     fruta = input(),
-    estatura = float(input())
+    estatura = float(input()),
+    ingresoMensual = float(input()),
+    lenguajeProgramacion = input()
   ))
 
   # Datos de la Personas
   edadesPersonas.append(objPersona[i].info()[1])
-  frutaPersonas.append(objPersona[i].info()[2])
-  estaturaPersonas.append(objPersona[i].info()[3])
+  generosPersonas.append(objPersona[i].info()[2])
+  frutaPersonas.append(objPersona[i].info()[3])
+  estaturaPersonas.append(objPersona[i].info()[4])
+  ingresoPersonas.append(objPersona[i].info()[5])
+  lenguajePersonas.append(objPersona[i].info()[6])
 
 ''' Output de Datos '''
 
@@ -146,9 +158,19 @@ for i in range(numPersonas):
 print("La Persona Más Menor es:  ", bonitosArrays(personasMenorMayor(edadesPersonas, 1, "menor")))
 print("La Persona Más Mayor es:  ", bonitosArrays(personasMenorMayor(edadesPersonas, 1, "mayor")))
 
-# Imprimir Personas Menores y Mayores en Estatura
-print("La Persona Más Baja es:  ", bonitosArrays(personasMenorMayor(estaturaPersonas, 3, "menor")))
-print("La Persona Más Alta es:  ", bonitosArrays(personasMenorMayor(estaturaPersonas, 3, "mayor")))
+# Imprimir Personas (si hay) con el mismo genero
+buscarValoresIguales(generosPersonas, 2, "generos")
 
-# Imprimir Personas (Si hay) con las mismas frutas y con cuales
-buscarValoresIguales(frutaPersonas, 2, "frutas")
+# Imprimir Personas (Si hay) con las mismas frutas
+buscarValoresIguales(frutaPersonas, 3, "frutas")
+
+# Imprimir Personas Menores y Mayores en Estatura
+print("La Persona Más Baja es:  ", bonitosArrays(personasMenorMayor(estaturaPersonas, 4, "menor")))
+print("La Persona Más Alta es:  ", bonitosArrays(personasMenorMayor(estaturaPersonas, 4, "mayor")))
+
+# Imprimir Personas con Ingresos Menores y Ingresos Mayores
+print("La Persona con el Ingreso Más Bajo es:  ", bonitosArrays(personasMenorMayor(ingresoPersonas, 5, "menor")))
+print("La Persona con el Ingreso Más Alto es:  ", bonitosArrays(personasMenorMayor(ingresoPersonas, 5, "mayor")))
+
+# Imprimir Personas (Si hay) con el mismo lenguaje de programacion
+buscarValoresIguales(lenguajePersonas, 6, "Lenguajes de Programación")
