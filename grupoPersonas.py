@@ -92,7 +92,11 @@ def bonitosArrays (array):
     if len(array) > 1:
       arrayBonito = "" # Resultado del array ya bonito
       for i in range(len(array) - 1):
-        arrayBonito += str(array[i]) + ", " # Agregar las primeras personas con una coma para la siguiente & ultima persona
+        print(i, array[i])
+        if i == len(array) - 2:
+          arrayBonito += str(array[i]) + " "  # No Agregar coma para la ultima persona
+        else:
+          arrayBonito += str(array[i]) + ", " # Agregar las primeras personas con una coma para la siguiente persona
 
       arrayBonito += "y " + str(array[-1]) # Agregar la ultima persona, con un & o Y al inicio
       return arrayBonito
