@@ -132,17 +132,31 @@ estaturaPersonas = []
 ingresoPersonas = []
 lenguajePersonas = []
 
+def verificarNum(mensaje, tipoVar):
+  while True:
+    numVar = input(mensaje)
+    try:
+      if tipoVar == "int":
+        numVar = int(numVar)
+      elif tipoVar == "float":
+        numVar = float(numVar)
+
+    except ValueError:
+      print(numVar, "No es un Valor númerico, por favor entre un valor númerico")
+    else:
+      return numVar
+
 # Entrada de Personas
 for i in range(numPersonas):
   # Eliminado Entrada de Inputs para Mejor comprension de la terminal
   objPersona.append(infoPersona(
-    nombre = input(),
-    edad = int(input()),
-    genero = input(),
-    fruta = input(),
-    estatura = float(input()),
-    ingresoMensual = float(input()),
-    lenguajeProgramacion = input()
+    nombre = input("Name: ").capitalize(),
+    edad = verificarNum("Age: ", "int"),
+    genero = input("Gender: ").capitalize(),
+    fruta = input("Fruit: ").capitalize(),
+    estatura = verificarNum("Height: ", "float"),
+    ingresoMensual = verificarNum("Mensual Income: ", "float"),
+    lenguajeProgramacion = input("Programming Lenguage: ").capitalize()
   ))
 
   # Datos de la Personas
