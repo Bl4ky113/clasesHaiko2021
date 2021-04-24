@@ -150,13 +150,13 @@ def verificarNum(mensaje, tipoVar):
 for i in range(numPersonas):
   # Eliminado Entrada de Inputs para Mejor comprension de la terminal
   objPersona.append(infoPersona(
-    nombre = input("Name: ").capitalize(),
-    edad = verificarNum("Age: ", "int"),
-    genero = input("Gender: ").capitalize(),
-    fruta = input("Fruit: ").capitalize(),
-    estatura = verificarNum("Height: ", "float"),
-    ingresoMensual = verificarNum("Mensual Income: ", "float"),
-    lenguajeProgramacion = input("Programming Lenguage: ").capitalize()
+    nombre = input("Nombre: ").capitalize(),
+    edad = verificarNum("Edad: ", "int"),
+    genero = input("Género: ").capitalize(),
+    fruta = input("Fruta Favoria: ").capitalize(),
+    estatura = verificarNum("Estatura: ", "float"),
+    ingresoMensual = verificarNum("Ingreso Mensual: ", "float"),
+    lenguajeProgramacion = input("Lenguaje de Programación: ").capitalize()
   ))
 
   # Datos de la Personas
