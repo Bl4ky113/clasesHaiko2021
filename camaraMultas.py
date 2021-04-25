@@ -9,6 +9,8 @@
     - Determinar cuales de estos se merecen multa, curso & ok
 '''
 
+from lineasBonitas import lineasBonitas as LB
+
 ''' Clase Carros ''' 
 class infoCarros:
   def __init__ (self, tiempoRecorrido, placa):
@@ -35,7 +37,7 @@ def verificarNumLogico(mensaje):
         return "ERROR"
 
 
-distanciaCamaras = verificarNumLogico("Distancia entre Cámaras: ") # (m) Metros
+distanciaCamaras = verificarNumLogico("Distancia entre Cámaras: ") # (km) KiloMetros
 velocidadMax = verificarNumLogico("Velocidad Máxima: ") # (km/h) KiloMetros / Hora
 condicionalError = distanciaCamaras == "ERROR" or velocidadMax == "ERROR"
 
@@ -45,27 +47,48 @@ placasCarros = []
 cantidadCarros = 2
 
 for i in range(cantidadCarros):
+  print(LB(100))
+  print("Carro N°" + str(i + 1))
   arrCarros.append(infoCarros(
-    tiempoRecorrido = verificarNumLogico(""),
-    placa = input("")
+    tiempoRecorrido = verificarNumLogico("Tiempo en Recorrer Distancia: "),
+    placa = input("Placa del Carro: ").upper()
   ))
 
   distanciasCarros.append(arrCarros[i].info()[0])
   placasCarros.append(arrCarros[i].info()[1])
-  print(arrCarros[i].info())
 
 if condicionalError:
   print("ERROR")
 
 else: 
-  """ velocidadAuto = distanciaCamaras / convercionSegundos()
+  def convertir (valor, medida):
+    if medida == "km-m":
+      valor *= 1000
+    elif medida == "h-s":
+      valor *= 3600
+    elif medida == "km/h-m/s":
+      valor = (valor * 1000) / 3600
+    return valor
 
-  if velocidadAuto >= (velocidadMax * 1.2):
-    print("Multa")
+  carrosMultados = []
+  carrosCursos = []
+  carrosOk = []
 
-  elif velocidadAuto < (velocidadMax * 1.2) and velocidadAuto > velocidadMax:
-    print("Curso de Sensibilización")
+  for i in range(cantidadCarros):
+    velocidadAuto = convertir(distanciaCamaras, "km-m") / convertir(arrCarros[i].info()[0], "h-s")
+    velocidadMax = convertir(velocidadMax, "km/h-m/s")
 
-  elif velocidadAuto <= velocidadMax: 
-    print("Ok")
- """
+    if velocidadAuto >= (velocidadMax * 1.2):
+      carrosMultados.append(arrCarros[i].info()[1])
+
+    elif velocidadAuto < (velocidadMax * 1.2) and velocidadAuto > velocidadMax:
+      carrosCursos.append(arrCarros[i].info()[1])
+
+    elif velocidadAuto <= velocidadMax: 
+      carrosOk.append(arrCarros[i].info()[1])
+
+print(LB(100) + "\n")
+print("Carros con Multas: ", str(carrosMultados))
+print("Carros que deben ir a Cursos de Sensibilación: ", str(carrosCursos))
+print("Carros ok: ", str(carrosOk))
+print("\n" + LB(100))
