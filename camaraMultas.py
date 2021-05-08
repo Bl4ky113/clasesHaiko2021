@@ -37,8 +37,8 @@ def verificarNumLogico(mensaje):
         return "ERROR"
 
 
-distanciaCamaras = verificarNumLogico("Distancia entre Cámaras: ") # (km) KiloMetros
-velocidadMax = verificarNumLogico("Velocidad Máxima: ") # (km/h) KiloMetros / Hora
+distanciaCamaras = verificarNumLogico("Distancia entre Cámaras (m): ") # (m) Metros
+velocidadMax = verificarNumLogico("Velocidad Máxima (km/h): ") # (km/h) KiloMetros / Hora
 condicionalError = distanciaCamaras == "ERROR" or velocidadMax == "ERROR"
 
 arrCarros = []
@@ -50,7 +50,7 @@ for i in range(cantidadCarros):
   print(LB(100))
   print("Carro N°" + str(i + 1))
   arrCarros.append(infoCarros(
-    tiempoRecorrido = verificarNumLogico("Tiempo en Recorrer Distancia: "),
+    tiempoRecorrido = verificarNumLogico("Tiempo en Recorrer Distancia (seg): "),
     placa = input("Placa del Carro: ").upper()
   ))
 
@@ -61,22 +61,22 @@ if condicionalError:
   print("ERROR")
 
 else: 
-  def convertir (valor, medida):
-    if medida == "km-m":
-      valor *= 1000
-    elif medida == "h-s":
-      valor *= 3600
-    elif medida == "km/h-m/s":
-      valor = (valor * 1000) / 3600
+  def convertirVelocidad (valor):
+    valor = (valor * 1000) / 3600
     return valor
 
   carrosMultados = []
   carrosCursos = []
   carrosOk = []
 
+  velocidadMax = convertirVelocidad(velocidadMax)
+  print(velocidadMax)
+  print(velocidadMax * 1.2)
+
   for i in range(cantidadCarros):
-    velocidadAuto = convertir(distanciaCamaras, "km-m") / convertir(arrCarros[i].info()[0], "h-s")
-    velocidadMax = convertir(velocidadMax, "km/h-m/s")
+    velocidadAuto = distanciaCamaras / arrCarros[i].info()[0]
+    print(str(distanciaCamaras), " / " , str(arrCarros[i].info()[0]))
+    print(velocidadAuto)
 
     if velocidadAuto >= (velocidadMax * 1.2):
       carrosMultados.append(arrCarros[i].info()[1])
