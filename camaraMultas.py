@@ -44,7 +44,7 @@ condicionalError = distanciaCamaras == "ERROR" or velocidadMax == "ERROR"
 arrCarros = []
 distanciasCarros = []
 placasCarros = []
-cantidadCarros = 2
+cantidadCarros = 3
 
 for i in range(cantidadCarros):
   print(LB(100))
@@ -87,6 +87,7 @@ else:
     elif velocidadAuto <= velocidadMax: 
       carrosOk.append(arrCarros[i].info()[1])
 
+''' Output de Datos '''
 print(LB(100) + "\n")
 print("Carros con Multas: ", str(carrosMultados))
 print("Carros que deben ir a Cursos de Sensibilación: ", str(carrosCursos))
