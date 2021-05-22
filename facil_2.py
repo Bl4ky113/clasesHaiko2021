@@ -38,7 +38,7 @@ arrBolas = [valorBolas, colorBolas]
 
 for i in range(6):
    infoCompras.append(compra(
-      float(input("")),
+      float(input("Valor de la Compra:  ")),
       randint(0, 4)
    ))
 
@@ -48,4 +48,4 @@ for i in range(6):
    print("Su Compra es de:  ", infoCompras[i].info()[0])
    print("El Color de la Bola es:  ", arrBolas[1][infoCompras[i].info()[1]])
    print("Valor total de la Compra, con descuento, es de:   ", totalCompra)
-   print("\n******************************************")
+   print("\n*******************************************")

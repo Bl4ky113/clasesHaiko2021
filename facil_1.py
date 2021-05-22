@@ -19,8 +19,8 @@ trabajador = []
 
 for i in range(3):
    trabajador.append(infoTrabajador(
-      float(input("")),
-      float(input("")),
+      float(input("Horas Trabajadas:  ")),
+      float(input("Pago por Hora:  ")),
    ))
 
 for i in range(3):
