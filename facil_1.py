@@ -30,11 +30,8 @@ for i in range(3):
    
    elif trabajador[i].info()[0] > 48:
       pagaTotal = trabajador[i].info()[1] * 40
-      print(trabajador[i].info()[1])
       pagaTotal += (2 * trabajador[i].info()[1]) * 8
-      print(trabajador[i].info()[1])
       pagaTotal += (3 * trabajador[i].info()[1]) * (trabajador[i].info()[0] - 48)
-      print(trabajador[i].info()[1])
 
    else: 
       pagaTotal = trabajador[i].info()[0] * trabajador[i].info()[1]
