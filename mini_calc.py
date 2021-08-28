@@ -88,7 +88,7 @@ while True:
       print(f"División del {NUM_POSITION_NAME[i]} número con todos los demás números")
       for e in range(NUM_INPUTS):
         result = num_arr[i] / num_arr[e]
-        print(f"{num_arr[i]} / {num_arr[e]} = {result:.3}")
+        print(f"{num_arr[i]} / {num_arr[e]} = {result:.3f}")
 
   elif command == command_arr[4]:
     i = 0
