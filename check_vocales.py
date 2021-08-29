@@ -1,44 +1,36 @@
 
 VOCALES = ['a', 'e', 'i', 'o', 'u']
 
-arr_palabras = []
-arr_tieneVocal = []
-arr_numVocales = []
-arr_vocalesPalabras = []
+class word ():
+  def __init__(self) -> None:
+    self.word = input("Ingresa una palabra:  ")
+    self.info = self.info_word(self.word)
+  
+  def info_word (self, word): 
+    info_dict = {} 
+    has_vocals = False 
+    num_vocals = 0 
+    vocals = []
+    for char in word:
+      if char.lower() in VOCALES:
+        has_vocals = True
+        num_vocals += 1
+        if char.lower() not in vocals:
+          vocals += char
 
-str_tieneVocal = "" # True => Si || false => No
-palabra = input("Ingresa la primera palabra: ")
-tieneVocal = False
-numVocales = 0
-vocalesPalabras = ""
+    info_dict.update({ "has_vocals": has_vocals, "num_vocals": num_vocals, "vocals": vocals })
+    return info_dict
 
-while palabra != "fin":
-  tieneVocal = False
-  numVocales = 0
-  vocalesPalabras = ""
+arr_words = []
+input_word = word()
 
-  arr_palabras.append(palabra)
+while input_word.word != "fin":
+  arr_words.append(input_word)
+  input_word = word()
 
-  for i in palabra:
-    if i in VOCALES:
-      tieneVocal = True
-      numVocales += 1
-      vocalesPalabras += i
-    else:
-      if tieneVocal != True:
-        tieneVocal = False
-
-  arr_tieneVocal.append(tieneVocal)
-  arr_numVocales.append(numVocales)
-  arr_vocalesPalabras.append(vocalesPalabras);
-  palabra = input("Ingresa una palabra: ")
-
-
-for i in range(len(arr_palabras)):
-  if arr_tieneVocal[i] == True:
-    str_tieneVocal = "Sí"
+for index_word in arr_words:
+  if (index_word.info["has_vocals"] == True):
+    print(f"La Palabra {index_word.word} Sí tiene Vocales")
+    print(f"Tiene {index_word.info['num_vocals']} vocales y son {index_word.info['vocals']}")
   else:
-    str_tieneVocal = "No"
-
-  print(f"La Palabra '{arr_palabras[i]}' {str_tieneVocal} tiene vocales.")
-  print(f"Tiene {arr_numVocales[i]} vocales. Y estas son: {arr_vocalesPalabras[i]}")
+    print(f"La Palabra {index_word.word} No tiene Vocales")
