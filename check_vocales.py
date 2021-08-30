@@ -4,9 +4,9 @@ VOCALES = ['a', 'e', 'i', 'o', 'u']
 class word ():
   def __init__(self) -> None:
     self.word = input("Ingresa una palabra:  ")
-    self.info = self.info_word(self.word)
+    self.info = self.getInfo(self.word)
   
-  def info_word (self, word): 
+  def getInfo (self, word): 
     info_dict = {} 
     has_vocals = False 
     num_vocals = 0 
