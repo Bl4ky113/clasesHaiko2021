@@ -2,7 +2,7 @@
   El usuario ingresa su nombre (first name and last name) y el programa retorna cuantas vocales y letras tiene 
 """
 
-VOCALS = ['a', 'e', 'i', 'o', 'u']
+VOCALS = ('a', 'e', 'i', 'o', 'u')
 
 full_name = input("Ingrese su Nombre Completo:  ")
 arr_name = full_name.split(" ")

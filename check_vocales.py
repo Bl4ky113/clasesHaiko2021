@@ -1,5 +1,5 @@
 
-VOCALES = ['a', 'e', 'i', 'o', 'u']
+VOCALES = ('a', 'e', 'i', 'o', 'u')
 
 class word ():
   def __init__(self) -> None:

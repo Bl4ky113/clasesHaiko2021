@@ -9,10 +9,10 @@ phrase_arr = phrase.split(" ")
 
 for word in phrase_arr:
   for char in word:
-    if char not in count_letters:
-      count_letters[f"{char}"] = 1
+    if char.lower() not in count_letters:
+      count_letters[f"{char.lower()}"] = 1
     else:
-      count_letters[f"{char}"] += 1
+      count_letters[f"{char.lower()}"] += 1
 
 print("La Frase:".center(5, " "))
 print("|||".center(12 + len(phrase), "="), "\n")
