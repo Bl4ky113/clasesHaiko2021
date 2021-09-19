@@ -37,19 +37,21 @@ for palo in palos:
     for numero in numeros:
         baraja.append([numero, palo])
 
-for veces in range(10):
+for veces in range(50):
     cartas_elegidas = sample(baraja, 5)
     resultado_cartas = revisar_cartas(cartas_elegidas)
 
     resultado = contar_pares_trios(resultado_cartas)
 
-    print(f"En la mano {cartas_elegidas}")
+    print(f"\nEn la mano {cartas_elegidas}")
 
     for llave in resultado.keys():
+        # resultado.keys() == resultado_cartas.keys() ?
         value = resultado_cartas[llave]
-        
-        print(f"El número: {llave} tiene")
-        print(f"{resultado[llave]['pares']} pares y {resultado[llave]['trios']} trios")
-        print(f"Con las cartas: {value[1]}")
+
+        if value[0] > 1:
+            print(f"El número: {llave} tiene")
+            print(f"{resultado[llave]['pares']} pares y {resultado[llave]['trios']} trios")
+            print(f"Con las cartas: {value[1]}")
 
     
